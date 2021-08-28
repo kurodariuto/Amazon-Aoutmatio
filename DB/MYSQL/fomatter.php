@@ -1,6 +1,6 @@
 <?php 
-// This is sql operation class
 
+// Class that converts an object into a list
 class DbFormatter {
 	private $db_list = [];
 
@@ -14,8 +14,5 @@ class DbFormatter {
 		$this->db_list[] = $db_list;
 	}
 }
-$db_link = mysqli_connect(ConfigRegistry::DBHOST, ConfigRegistry::DBUSER, ConfigRegistry::DBPASS, ConfigRegistry::DBNAME);
-$db_query = mysqli_query($db_link, 'SELECT * FROM' . ' ' .ConfigRegistry::DBTABLE);
-$db_data = mysqli_fetch_all($db_query, MYSQLI_ASSOC);
 
  ?>

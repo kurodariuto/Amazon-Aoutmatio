@@ -1,5 +1,6 @@
 <?php 
 
+// HACH：Better to change the directory path to a constant
 require_once __DIR__ . '/../Chrome/driver.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 use Facebook\WebDriver\WebDriverExpectedCondition;

@@ -6,6 +6,8 @@ use Facebook\WebDriver\Chrome\ChromeDriver;
   Pay attention to the permissios of usr/local/bin
   DowonLod：https://chromedriver.chromium.org/downloads
 */
+
+// HACH：It is better to make it a constant
 $driverPath = realpath("/usr/local/bin/chromedriver");
 putenv("webdriver.chrome.driver=" . $driverPath);
 $driver = ChromeDriver::start();
