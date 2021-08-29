@@ -18,6 +18,6 @@ $options->addArguments([
 ]);
 
 $mysql = new MYSQL();
-var_dump($mysql->select_all());
+$mysql->select_all();
 
  ?>
