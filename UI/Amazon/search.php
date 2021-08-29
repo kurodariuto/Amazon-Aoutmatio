@@ -9,11 +9,8 @@ class SearchAction {
 	private $url_list = [];
 	private $url = 'https://www.amazon.co.jp/dp/';
 
-	private function create_url($value) {
-		if (!is_array($value)) {
-			throw new Exception('This is error. Please put a character array in argument');
-		}
-		return $this->url.$value;
+	private function create_url($url_value) {
+		return $this->url.$url_value;
 	}
 	public function getUrlList() {
 		return $this->url_list;
@@ -27,7 +24,7 @@ class SearchAction {
 	public function serach_all($url_list) {
 		global $driver;
 		if (!is_array($url_list)) {
-			throw new Exception("'This is error. Please put a character array in argument'");
+			throw new Exception('This is error. Please put a character array in argument');
 		}
 		foreach ($url_list as $url) {
 			$driver->get($url);
