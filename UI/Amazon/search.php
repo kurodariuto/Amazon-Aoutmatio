@@ -10,8 +10,8 @@ class SearchAction {
 	private $url = 'https://www.amazon.co.jp/dp/';
 
 	private function create_url($value) {
-		if (!is_string($value)) {
-			throw new Exception('This is error. Please put a character string in argument');
+		if (!is_array($value)) {
+			throw new Exception('This is error. Please put a character array in argument');
 		}
 		return $this->url.$value;
 	}
