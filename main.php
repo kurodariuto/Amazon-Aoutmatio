@@ -18,7 +18,7 @@ $options->addArguments([
     'window-size=1920,1600'
 ]);
 
-$mysql = new MySql();
+$mysql = new MYSQL();
 $db_formatter = new DbFormatter();
 $db_formatter->setDbList($mysql->select_all(), 'asin');
 $db_formatter_list = $db_formatter->getDbList();
