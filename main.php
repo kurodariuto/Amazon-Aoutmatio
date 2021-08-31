@@ -13,9 +13,9 @@ $options->addArguments([
     'disable-infobars',
     /* If you want to use headless, see comment out below
      */
-    #'--headless',
+    '--headless',
     'start-maximized',
-    'window-size=1920,1600'
+    'window-size=1920,1080'
 ]);
 
 $mysql = new MySql();
@@ -27,6 +27,6 @@ $search_action = new SearchAction();
 $search_action->setUrlList($db_formatter_list);
 
 // XXX：The link below does not work properly due to age restrictions
-$search_action->serach_all($search_action->getUrlList());
+$search_action->serach_screenshot_all($search_action->getUrlList());
 
  ?>
