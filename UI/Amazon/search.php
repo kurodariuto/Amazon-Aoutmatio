@@ -21,7 +21,7 @@ class SearchAction {
 		}
 		$this->url_list = array_map(array($this, 'create_url'), $list);
 	}
-	public function serach_all($url_list) {
+	public function serach_screenshot_all($url_list) {
 		global $driver;
 		if (!is_array($url_list)) {
 			throw new Exception('This is error. Please put a character array in argument');
@@ -31,10 +31,11 @@ class SearchAction {
 			$driver->wait(3)->until(
 				WebDriverExpectedCondition::urlIs($url)
 			);
+			$img_name = str_replace('https://www.amazon.co.jp/dp/', '', $url);
+			var_dump($url);
+			$file = './img/'.$img_name.'.png';
+			$driver->takeScreenshot($file);
 		}$driver->quit();
-	}
-	public function screenshot_all() {
-		// TODO：Page transition is possible for the length of list
 	}
 }
 
