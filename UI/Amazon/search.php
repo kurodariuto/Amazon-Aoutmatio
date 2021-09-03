@@ -4,6 +4,8 @@
 require_once __DIR__ . '/../Chrome/driver.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverBy;
+
 
 class SearchAction {
 	private $url_list = [];
@@ -26,13 +28,16 @@ class SearchAction {
 		if (!is_array($url_list)) {
 			throw new Exception('This is error. Please put a character array in argument');
 		}
+		$error_url = 'https://www.amazon.co.jp/dp/B08ZJJ368R';
 		foreach ($url_list as $url) {
 			$driver->get($url);
-			$driver->wait(3)->until(
-				WebDriverExpectedCondition::urlIs($url)
-			);
+			if ($url == $error_url) {
+				$driver->findElement(WebDriverBy::cssSelector('#black-curtain-yes-button > span > a'))->click();
+			}else{
+				$driver->wait(3)->until(
+				WebDriverExpectedCondition::urlIs($url));
+			}
 			$img_name = str_replace('https://www.amazon.co.jp/dp/', '', $url);
-			var_dump($url);
 			$file = './img/'.$img_name.'.png';
 			$driver->takeScreenshot($file);
 		}$driver->quit();
